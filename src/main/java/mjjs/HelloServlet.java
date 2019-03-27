@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
+//com.mysql.cj.jdbc.Driver
 
 
 public class HelloServlet extends HttpServlet {
@@ -36,6 +37,7 @@ public class HelloServlet extends HttpServlet {
     }
 
     String jdbc = prop.getProperty("mjjs.datasource.url");
+    System.out.println("mjjs.datasource.url: "+jdbc);
     String username = prop.getProperty("mjjs.datasource.username");
     String password = prop.getProperty("mjjs.datasource.password");
     String className = prop.getProperty("mjjs.datasource.driverClassName");
@@ -63,8 +65,7 @@ public class HelloServlet extends HttpServlet {
 
     Connection connection = null;
     try {
-        connection = DriverManager
-        .getConnection(jdbc, username, password);
+        connection = DriverManager.getConnection(jdbc, username, password);
  
     } catch (SQLException e) {
         out.println("Your database server may be down.  Or if it is up");
